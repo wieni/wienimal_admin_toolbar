@@ -1,0 +1,17 @@
+{
+    "name": "wieni/wienimal_admin_toolbar",
+    "description": "A nice admin experience for Drupal 8, finally.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sander Tirez",
+            "email": "sander@wieni.be"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "type": "drupal-module",
+    "require": {
+        "drupal/admin_toolbar": "~8.1"
+    }
+}

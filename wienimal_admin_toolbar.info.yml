@@ -1,0 +1,7 @@
+name: Wienimal Admin Toolbar
+core: 8.x
+description: Wienimal styling brought to admin toolbar.
+package: Wieni
+type: module
+dependencies:
+  - admin_toolbar

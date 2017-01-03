@@ -1,0 +1,138 @@
+<?php
+
+/**
+ * @file
+ * Functions to support wienimal admin toolbar.
+ */
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function wienimal_admin_toolbar_preprocess_html(&$variables)
+{
+    // Add 'wienimal-admin-toolbar' class to the body.
+    if (_wienimal_admin_toolbar_is_access()) {
+        $variables['attributes']['class'][] = 'wienimal-admin-toolbar';
+    }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function wienimal_admin_toolbar_page_attachments_alter(array &$page)
+{
+    if (_wienimal_admin_toolbar_is_access()) {
+        // Attach the icons.
+        $page['#attached']['library'][] = 'wienimal_admin_toolbar/ionicons';
+        // Attach the custom css.
+        $page['#attached']['library'][] = 'wienimal_admin_toolbar/wienimal-admin-toolbar';
+        // Attach the environment library.
+        $page['#attached']['library'][] = 'wienimal_admin_toolbar/toolbar.environment';
+    }
+}
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function wienimal_admin_toolbar_toolbar_alter(&$items)
+{
+    // Add class to the user tab so it can be moved to the right.
+    if (_wienimal_admin_toolbar_is_access()) {
+        $items['user']['#wrapper_attributes']['class'] = ['user-toolbar-tab'];
+    }
+}
+
+/**
+ * Helper function for checking user permission.
+ * We really only want to add styling and changes to toolbar when the user has
+ * access.
+ *
+ * Returns TRUE or FALSE.
+ */
+function _wienimal_admin_toolbar_is_access()
+{
+    $user = \Drupal::currentUser();
+    return $user->hasPermission('access toolbar');
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function wienimal_admin_toolbar_library_info_alter(&$libraries, $extension)
+{
+    $styles_path = '/' . drupal_get_path('module',
+        'wienimal_admin_toolbar') . '/css';
+
+    if ($extension == 'toolbar' && isset($libraries['toolbar'])) {
+        $new_css = [];
+        $replacements = [
+          'css/toolbar.theme.css' => $styles_path . '/toolbar.theme.css',
+          'css/toolbar.icons.theme.css' => $styles_path . '/toolbar.icons.theme.css'
+        ];
+
+        foreach ($libraries['toolbar']['css']['theme'] as $source => $options) {
+            if (isset($replacements[$source])) {
+                $new_css[$replacements[$source]] = $options;
+            } else {
+                $new_css[$source] = $options;
+            }
+        }
+        $libraries['toolbar']['css']['theme'] = $new_css;
+    }
+}
+
+/**
+ * Implements hook_preprocess_toolbar().
+ */
+function wienimal_admin_toolbar_preprocess_toolbar(&$variables)
+{
+    // Lock the toolbar
+    $variables['#attached']['library'][] = 'wienimal_admin_toolbar/toolbar.lock';
+    // Pass the module directory to the Twig files, like the directory variable in themes.
+    $variables['module_directory'] = drupal_get_path('module',
+      'wienimal_admin_toolbar');
+    // Pass the current environment to the template.
+    $variables['environment'] = _wienimal_admin_toolbar_check_environment();
+    // Admin logo
+    $variables['admin_logo_path'] = _wienimal_admin_toolbar_admin_logo_path();
+}
+
+/**
+ * Helper function to get the current environment.
+ */
+function _wienimal_admin_toolbar_check_environment()
+{
+    return WM_ENV_NAME;
+}
+
+/**
+ * Helper function to get the admin logo
+ */
+function _wienimal_admin_toolbar_admin_logo_path()
+{
+    // The default logo from this module.
+    $admin_logo_module_path = '/' . drupal_get_path('module',
+        'wienimal_admin_toolbar') . '/admin-logo.svg';
+
+    // Get the active theme.
+    $theme = \Drupal::config('system.theme')->get('default');
+    $admin_logo_theme_path = drupal_get_path('theme',
+        $theme) . '/admin-logo.svg';
+
+    // Return the admin logo from the front-end theme if there is one. Otherwise
+    // return the default logo.
+    if (file_exists($admin_logo_theme_path)) {
+        return $admin_logo_theme_path;
+    } else {
+        return $admin_logo_module_path;
+    }
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function wienimal_admin_toolbar_theme_registry_alter(&$theme_registry)
+{
+    $theme_registry['toolbar']['path'] = drupal_get_path('module',
+        'wienimal_admin_toolbar') . '/templates';
+}

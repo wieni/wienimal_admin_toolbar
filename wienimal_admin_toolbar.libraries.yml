@@ -1,0 +1,14 @@
+toolbar.lock:
+  js:
+    js/wienimal_admin_toolbar.js: {}
+
+toolbar.environment:
+  css:
+    theme:
+      css/toolbar.environment.css: {}
+
+ionicons:
+  version: '2.0.1'
+  css:
+    base:
+      http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css: { external: true }

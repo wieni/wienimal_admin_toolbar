@@ -1,0 +1,99 @@
+/**
+ * @file
+ * Styling for toolbar module icons.
+ */
+
+@import 'config';
+
+.toolbar {
+    .toolbar-icon {
+        position: relative;
+        background-color: transparent;
+        border: 0;
+        font-size: 1em;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::before {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 0;
+            width: 15px;
+            font-family: "Ionicons";
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            text-rendering: auto;
+            line-height: 1;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-image: none !important;
+        }
+    }
+}
+
+.toolbar .toolbar-icon.toolbar-handle {
+    color: $toolbar-tray-link-color;
+    display: inline-flex;
+    font-size: 0;
+    padding: 0 15px;
+    border-left: 1px solid rgba($toolbar-tray-link-color, .05);
+
+    &::before {
+        margin: 0;
+    }
+}
+
+.toolbar .toolbar-icon.toolbar-handle::before {
+    content: "\f216";
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: .6;
+}
+.toolbar .toolbar-icon.toolbar-handle.open::before {
+    content: "\f207";
+    opacity: 1;
+}
+.toolbar .toolbar-menu .toolbar-menu .toolbar-icon.toolbar-handle::before {
+    content: "\f216";
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: .6;
+}
+.toolbar .toolbar-menu .toolbar-menu .toolbar-icon.toolbar-handle.open::before {
+    content: "\f207";
+    opacity: 1;
+}
+
+/**
+ * Override admin_menu styles.
+ */
+.toolbar-icon-admin-toolbar-tools-help {
+    text-indent: 0 !important;
+}
+
+/**
+ * The default icons for the main navigation
+ */
+.level-1 > .toolbar-box a[class*="toolbar-icon-"]::before {
+    content: "\f20b";
+}
+
+/**
+ * Top level icons.
+ */
+@each $icon, $code in $toolbar-icons {
+    .toolbar-bar .menu-item > .toolbar-box > .toolbar-icon-#{$icon}::before {
+        content: $code;
+    }
+}
+
+@each $icon, $code in $toolbar-main-icons {
+    .toolbar-bar > .toolbar-tab .toolbar-icon.toolbar-icon-#{$icon}::before {
+        content: $code;
+    }
+}

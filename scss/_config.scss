@@ -1,0 +1,25 @@
+$toolbar-icons: (
+    'admin-toolbar-tools-help': '\f27b',
+    'system-admin-content': '\f12f',
+    'system-admin-structure': '\f279',
+    'system-themes-page': '\f4d5',
+    'system-modules-list': '\f3c5',
+    'system-admin-config': '\f2ba',
+    'entity-user-collection': '\f47c',
+    'system-admin-reports': '\f262',
+    'help-main': '\f142',
+);
+
+$toolbar-main-icons: (
+    'escape-admin': '\f265',
+    'menu': '\f394',
+    'shortcut': '\f26b',
+    'user': '\f213',
+);
+
+$toolbar-tray-bg-color: #FAFAFA;
+$toolbar-tray-link-color: #333;
+$toolbar-size: 250px;
+
+$toolbar-bar-bg-color: $toolbar-tray-bg-color;
+$toolbar-bar-link-color: $toolbar-tray-link-color;
