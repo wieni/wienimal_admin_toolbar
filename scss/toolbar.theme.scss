@@ -53,7 +53,11 @@
 .toolbar .toolbar-bar {
     background-color: $toolbar-bar-bg-color;
     color: $toolbar-bar-link-color;
-    margin-left: $toolbar-size+30px;
+    margin-left: $toolbar-size;
+
+    .path-admin & {
+        margin-left: $toolbar-size + 30px;
+    }
 
     .toolbar-tab {
         > .toolbar-item {
