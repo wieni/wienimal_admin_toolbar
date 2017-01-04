@@ -1,8 +1,5 @@
-toolbar.lock:
-  js:
-    js/wienimal_admin_toolbar.js: {}
-
 toolbar.environment:
+  version: '1.0.7'
   css:
     theme:
       css/toolbar.environment.css: {}

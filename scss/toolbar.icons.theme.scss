@@ -2,7 +2,6 @@
  * @file
  * Styling for toolbar module icons.
  */
-
 @import 'config';
 
 .toolbar {
@@ -21,16 +20,7 @@
             margin-right: 10px;
             padding: 0;
             width: 15px;
-            font-family: "Ionicons";
-            speak: none;
-            font-style: normal;
-            font-weight: normal;
-            font-variant: normal;
-            text-transform: none;
-            text-rendering: auto;
-            line-height: 1;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            @include ionicons();
             background-image: none !important;
         }
     }
@@ -54,16 +44,19 @@
     line-height: 1.5;
     opacity: .6;
 }
+
 .toolbar .toolbar-icon.toolbar-handle.open::before {
     content: "\f207";
     opacity: 1;
 }
+
 .toolbar .toolbar-menu .toolbar-menu .toolbar-icon.toolbar-handle::before {
     content: "\f216";
     font-size: 1rem;
     line-height: 1.5;
     opacity: .6;
 }
+
 .toolbar .toolbar-menu .toolbar-menu .toolbar-icon.toolbar-handle.open::before {
     content: "\f207";
     opacity: 1;
@@ -95,5 +88,27 @@
 @each $icon, $code in $toolbar-main-icons {
     .toolbar-bar > .toolbar-tab .toolbar-icon.toolbar-icon-#{$icon}::before {
         content: $code;
+    }
+}
+
+/**
+ * Orientation toggle.
+ */
+.toolbar .toolbar-toggle-orientation button {
+    height: 39px;
+    padding: 0;
+    width: 39px;
+    background: rgba($toolbar-tray-link-color, .15);
+    border: 1px solid rgba($toolbar-tray-link-color, .05);
+    font-size: 0;
+
+    &::before {
+        @include ionicons;
+        font-size: 1rem;
+        content: "\f268";
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        text-indent: 0;
     }
 }

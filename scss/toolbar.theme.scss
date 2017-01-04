@@ -1,13 +1,5 @@
 @import 'config';
 
-.toolbar-vertical {
-    transition: margin-left .25s;
-}
-
-.toolbar-tray-vertical {
-    transition: left .5s ease-in-out;
-}
-
 .toolbar-tray-open.toolbar-vertical.toolbar-fixed {
     margin-left: $toolbar-size !important;
 }
@@ -53,7 +45,8 @@
 .toolbar .toolbar-bar {
     background-color: $toolbar-bar-bg-color;
     color: $toolbar-bar-link-color;
-    margin-left: $toolbar-size;
+    margin-left: 0 !important;
+    padding-left: $toolbar-size;
 
     .path-admin & {
         margin-left: $toolbar-size + 30px;
@@ -87,7 +80,6 @@
  */
 .toolbar .toolbar-tray {
     background-color: $toolbar-tray-bg-color;
-    margin-top: 0 !important;
 }
 
 .toolbar .toolbar-logo {
@@ -158,13 +150,6 @@
 }
 
 /**
- * Orientation toggle.
- */
-.toolbar .toolbar-toggle-orientation {
-    display: none !important;
-}
-
-/**
  * Toolbar adjustments
  */
 .toolbar-bar .toolbar-icon-escape-admin {
@@ -187,34 +172,91 @@
     }
 }
 
-.menu-item {
-    overflow: hidden;
-    opacity: .7;
-    transition: opacity .2s ease-in-out;
-
-    &.open {
-        &,
-        .menu-item {
-            opacity: 1;
-        }
-    }
-}
-
 // Ugly Drupal core override
 .toolbar .toolbar-tray .menu-item--active-trail > .toolbar-box a, .toolbar .toolbar-tray a.is-active {
     font-weight: 400;
 }
 
-.open .toolbar-menu {
-    animation-name: open;
-    animation-duration: .25s;
+.toolbar-tray-vertical {
+    margin-top: 0 !important;
 }
 
-@keyframes open {
-    0% {
-        opacity: 0;
+/**
+ * Vertical toolbar
+ */
+.toolbar-vertical {
+    .menu-item {
+        overflow: hidden;
+        opacity: .7;
+        transition: opacity .2s ease-in-out;
+
+        &.open {
+            &,
+            .menu-item {
+                opacity: 1;
+            }
+        }
     }
-    100% {
-        opacity: 1;
+}
+
+/**
+ * Horizontal toolbar
+ */
+.toolbar-horizontal {
+    .toolbar {
+        .toolbar-tray {
+            margin-top: 0 !important;
+
+            .menu-item {
+                border: 0;
+                border-bottom: 1px solid rgba($toolbar-tray-link-color, .05);
+
+                &:first-child {
+                    border: 0;
+                }
+                &:last-child {
+                    border: 0;
+                }
+            }
+
+            .menu-item--expanded {
+                background-color: transparent;
+
+                &:hover {
+                    ul {
+                        box-shadow: none;
+                    }
+                }
+
+                ul {
+                    li {
+                        &.menu-item--expanded {
+                            background: 0;
+                            position: relative;
+
+                            &::after {
+                                @include ionicons;
+                                content: "\f3d3";
+                                position: absolute;
+                                right: 12px;
+                                top: 19px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .toolbar-bar {
+            padding-left: 100px;
+        }
+    }
+
+    .toolbar-logo {
+        max-width: 35px;
+    }
+
+    .toolbar-environment {
+        display: none;
     }
 }

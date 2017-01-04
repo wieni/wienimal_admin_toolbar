@@ -23,3 +23,16 @@ $toolbar-size: 250px;
 
 $toolbar-bar-bg-color: $toolbar-tray-bg-color;
 $toolbar-bar-link-color: $toolbar-tray-link-color;
+
+@mixin ionicons() {
+    font-family: "Ionicons";
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    text-rendering: auto;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
