@@ -1,3 +1,6 @@
+/**
+ * @file toolbar.theme.css
+ */
 @import 'config';
 
 .toolbar-tray-open.toolbar-vertical.toolbar-fixed {
@@ -9,9 +12,6 @@
     width: $toolbar-size !important;
 }
 
-/**
- * @file toolbar.theme.css
- */
 .toolbar {
     font-family: -apple-system, BlinkMacSystemFont,
     "Segoe UI", "Roboto", "Oxygen",
@@ -24,19 +24,22 @@
     touch-callout: none;
 }
 
-.toolbar .toolbar-item {
+/**
+ * Toolbar item.
+ */
+.toolbar-item {
     border: 0;
     background: transparent;
     cursor: pointer;
     padding: 1.1em 1.3333em;
     line-height: 1em;
     text-decoration: none;
-}
 
-.toolbar .toolbar-item:hover,
-.toolbar .toolbar-item:focus {
-    text-decoration: none;
-    outline: none;
+    &:hover,
+    &:focus {
+        text-decoration: none;
+        outline: none;
+    }
 }
 
 /**
@@ -80,8 +83,25 @@
  */
 .toolbar .toolbar-tray {
     background-color: $toolbar-tray-bg-color;
+
+    a {
+        color: $toolbar-tray-link-color !important;
+        cursor: pointer;
+        padding: 1.25em 1.5em;
+        text-decoration: none !important;
+        transition: background-color .25s;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: darken($toolbar-tray-bg-color, 15%);
+        }
+    }
 }
 
+/**
+ * Toolbar logo.
+ */
 .toolbar .toolbar-logo {
     text-align: center;
     margin: 15px 30px;
@@ -97,25 +117,17 @@
     }
 }
 
+/**
+ * Toolbar environment.
+ */
 .toolbar .toolbar-environment {
     text-align: center;
     margin: 15px 0;
 }
 
-.toolbar-tray a {
-    color: $toolbar-tray-link-color !important;
-    cursor: pointer;
-    padding: 1.25em 1.5em;
-    text-decoration: none !important;
-    transition: background-color .25s;
-
-    &:hover,
-    &:focus,
-    &:active {
-        background-color: darken($toolbar-tray-bg-color, 15%);
-    }
-}
-
+/**
+ * Toolbar menu.
+ */
 .toolbar .toolbar-menu {
     background-color: $toolbar-tray-bg-color;
 
@@ -140,15 +152,6 @@
     }
 }
 
-.level-2 .toolbar-box > a {
-    padding-left: 2.2rem;
-}
-
-.level-3 .toolbar-box > a {
-    padding-left: 3rem;
-    font-size: .95em;
-}
-
 /**
  * Toolbar adjustments
  */
@@ -162,29 +165,13 @@
 }
 
 /**
- * Global search
- */
-.toolbar .global-search-toolbar-tab {
-    float: right !important;
-
-    .search-global {
-        padding: 1em !important;
-    }
-}
-
-// Ugly Drupal core override
-.toolbar .toolbar-tray .menu-item--active-trail > .toolbar-box a, .toolbar .toolbar-tray a.is-active {
-    font-weight: 400;
-}
-
-.toolbar-tray-vertical {
-    margin-top: 0 !important;
-}
-
-/**
  * Vertical toolbar
  */
 .toolbar-vertical {
+    .toolbar-tray {
+        margin-top: 0 !important;
+    }
+
     .menu-item {
         overflow: hidden;
         opacity: .7;
@@ -196,6 +183,15 @@
                 opacity: 1;
             }
         }
+    }
+
+    .level-2 .toolbar-box > a {
+        padding-left: 2.2rem;
+    }
+
+    .level-3 .toolbar-box > a {
+        padding-left: 3rem;
+        font-size: .95em;
     }
 }
 
@@ -259,4 +255,9 @@
     .toolbar-environment {
         display: none;
     }
+}
+
+// Ugly Drupal core override
+.toolbar .toolbar-tray .menu-item--active-trail > .toolbar-box a, .toolbar .toolbar-tray a.is-active {
+    font-weight: 400;
 }
