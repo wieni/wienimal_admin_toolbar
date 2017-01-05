@@ -61,7 +61,7 @@
 
     .toolbar-tab {
         > .toolbar-item {
-            color: $toolbar-bar-link-color;
+            color: inherit;
             font-weight: 100;
             transition: background-color .25s;
 
@@ -133,7 +133,7 @@
  */
 .toolbar .toolbar-menu {
     background-color: $toolbar-tray-bg-color;
-    border-top: 1px solid darken($toolbar-bar-bg-color, 10%);
+    border-top: 1px solid rgba($toolbar-tray-link-color, .05);
 
     .menu-item > .toolbar-menu {
         border-top: 0;
@@ -186,20 +186,28 @@
         font-size: .95em;
     }
 
+    .toolbar-menu {
+        background-color: transparent;
+    }
+
     .level-1 > .toolbar-menu {
-        background-color: darken($toolbar-tray-bg-color, 3%);
+        background-color: transparent;
     }
 
     .level-2 > .toolbar-menu {
-        background-color: darken($toolbar-tray-bg-color, 7%);
+        background-color: transparent;
     }
 
     .level-3 > .toolbar-menu {
-        background-color: darken($toolbar-tray-bg-color, 12%);
+        background-color: transparent;
     }
 
-    .level-3 > .toolbar-menu {
-        background-color: darken($toolbar-tray-bg-color, 15%);
+    .level-4 > .toolbar-menu {
+        background-color: transparent;
+    }
+
+    .toolbar-logo svg {
+        max-width: 150px;
     }
 }
 
@@ -262,6 +270,26 @@
 
     .toolbar-environment {
         display: none;
+    }
+
+    .toolbar-menu {
+        background-color: transparent;
+    }
+
+    .level-1 > .toolbar-menu {
+        background-color: transparent;
+    }
+
+    .level-2 > .toolbar-menu {
+        background-color: transparent;
+    }
+
+    .level-3 > .toolbar-menu {
+        background-color: transparent;
+    }
+
+    .level-4 > .toolbar-menu {
+        background-color: transparent;
     }
 }
 
