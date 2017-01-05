@@ -3,6 +3,10 @@
  */
 @import 'config';
 
+// @todo Remove admin-toolbar module css.
+// Hacks for the admin-toolbar before removing all css.
+@import 'admin-toolbar';
+
 .toolbar-tray-open.toolbar-vertical.toolbar-fixed {
     margin-left: $toolbar-size !important;
 }
@@ -89,7 +93,6 @@
         cursor: pointer;
         padding: 1.25em 1.5em;
         text-decoration: none !important;
-        transition: background-color .25s;
 
         &:hover,
         &:focus,
@@ -130,25 +133,14 @@
  */
 .toolbar .toolbar-menu {
     background-color: $toolbar-tray-bg-color;
+    border-top: 1px solid darken($toolbar-bar-bg-color, 10%);
+
+    .menu-item > .toolbar-menu {
+        border-top: 0;
+    }
 
     > li {
         border-bottom: 1px solid rgba($toolbar-tray-link-color, .05);
-    }
-
-    .level-1 > .toolbar-menu {
-        background-color: darken($toolbar-tray-bg-color, 3%);
-    }
-
-    .level-2 > .toolbar-menu {
-        background-color: darken($toolbar-tray-bg-color, 7%);
-    }
-
-    .level-3 > .toolbar-menu {
-        background-color: darken($toolbar-tray-bg-color, 12%);
-    }
-
-    .level-3 > .toolbar-menu {
-        background-color: darken($toolbar-tray-bg-color, 15%);
     }
 }
 
@@ -192,6 +184,22 @@
     .level-3 .toolbar-box > a {
         padding-left: 3rem;
         font-size: .95em;
+    }
+
+    .level-1 > .toolbar-menu {
+        background-color: darken($toolbar-tray-bg-color, 3%);
+    }
+
+    .level-2 > .toolbar-menu {
+        background-color: darken($toolbar-tray-bg-color, 7%);
+    }
+
+    .level-3 > .toolbar-menu {
+        background-color: darken($toolbar-tray-bg-color, 12%);
+    }
+
+    .level-3 > .toolbar-menu {
+        background-color: darken($toolbar-tray-bg-color, 15%);
     }
 }
 
@@ -249,7 +257,7 @@
     }
 
     .toolbar-logo {
-        max-width: 35px;
+        max-width: 30px;
     }
 
     .toolbar-environment {

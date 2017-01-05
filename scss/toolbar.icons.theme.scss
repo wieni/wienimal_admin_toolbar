@@ -72,7 +72,7 @@
 /**
  * The default icons for the main navigation
  */
-.level-1 > .toolbar-box a[class*="toolbar-icon-"]::before {
+.level-1 > a[class*="toolbar-icon-"]::before {
     content: "\f20b";
 }
 
@@ -80,7 +80,7 @@
  * Top level icons.
  */
 @each $icon, $code in $toolbar-icons {
-    .toolbar-bar .menu-item > .toolbar-box > .toolbar-icon-#{$icon}::before {
+    .toolbar-bar .menu-item .toolbar-icon-#{$icon}::before {
         content: $code;
     }
 }
@@ -95,11 +95,10 @@
  * Orientation toggle.
  */
 .toolbar .toolbar-toggle-orientation button {
-    height: 39px;
+    height: 50px;
     padding: 0;
-    width: 39px;
+    width: 50px;
     background: rgba($toolbar-tray-link-color, .15);
-    border: 1px solid rgba($toolbar-tray-link-color, .05);
     font-size: 0;
 
     &::before {
