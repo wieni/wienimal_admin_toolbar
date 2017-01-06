@@ -60,8 +60,7 @@ function _wienimal_admin_toolbar_is_access()
  */
 function wienimal_admin_toolbar_library_info_alter(&$libraries, $extension)
 {
-    $styles_path = '/' . drupal_get_path('module',
-        'wienimal_admin_toolbar') . '/css';
+    $styles_path = '/' . drupal_get_path('module', 'wienimal_admin_toolbar') . '/css';
 
     if ($extension == 'toolbar' && isset($libraries['toolbar'])) {
         $new_css = [];
@@ -78,6 +77,22 @@ function wienimal_admin_toolbar_library_info_alter(&$libraries, $extension)
             }
         }
         $libraries['toolbar']['css']['theme'] = $new_css;
+    }
+
+    if ($extension == 'admin_toolbar' && isset($libraries['toolbar.tree'])) {
+        $new_css = [];
+        $replacements = [
+          'css/admin.toolbar.css' => $styles_path . '/admin.toolbar.css',
+        ];
+
+        foreach ($libraries['toolbar.tree']['css']['theme'] as $source => $options) {
+            if (isset($replacements[$source])) {
+                $new_css[$replacements[$source]] = $options;
+            } else {
+                $new_css[$source] = $options;
+            }
+        }
+        $libraries['toolbar.tree']['css']['theme'] = $new_css;
     }
 }
 

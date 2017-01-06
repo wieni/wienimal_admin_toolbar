@@ -3,10 +3,6 @@
  */
 @import 'config';
 
-// @todo Remove admin-toolbar module css.
-// Hacks for the admin-toolbar before removing all css.
-@import 'admin-toolbar';
-
 .toolbar-tray-open.toolbar-vertical.toolbar-fixed {
     margin-left: $toolbar-size !important;
 }
@@ -186,26 +182,6 @@
         font-size: .95em;
     }
 
-    .toolbar-menu {
-        background-color: transparent;
-    }
-
-    .level-1 > .toolbar-menu {
-        background-color: transparent;
-    }
-
-    .level-2 > .toolbar-menu {
-        background-color: transparent;
-    }
-
-    .level-3 > .toolbar-menu {
-        background-color: transparent;
-    }
-
-    .level-4 > .toolbar-menu {
-        background-color: transparent;
-    }
-
     .toolbar-logo svg {
         max-width: 150px;
     }
@@ -273,23 +249,7 @@
     }
 
     .toolbar-menu {
-        background-color: transparent;
-    }
-
-    .level-1 > .toolbar-menu {
-        background-color: transparent;
-    }
-
-    .level-2 > .toolbar-menu {
-        background-color: transparent;
-    }
-
-    .level-3 > .toolbar-menu {
-        background-color: transparent;
-    }
-
-    .level-4 > .toolbar-menu {
-        background-color: transparent;
+        background-color: $toolbar-tray-bg-color;
     }
 }
 
