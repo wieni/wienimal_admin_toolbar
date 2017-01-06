@@ -116,7 +116,11 @@ function wienimal_admin_toolbar_preprocess_toolbar(&$variables)
  */
 function _wienimal_admin_toolbar_check_environment()
 {
-    return WM_ENV_NAME;
+    $user = \Drupal::currentUser();
+    
+    if ($user->hasPermission('administer site configuration')) {
+        return WM_ENV_NAME;
+    }
 }
 
 /**

@@ -37,9 +37,11 @@
                                     {% include admin_logo_path %}
                                 </a>
                             </div>
-                            <div class="toolbar-environment">
-                                {% include '/' ~ module_directory ~ '/components/environment-indicator.html.twig' %}
-                            </div>
+                            {% if environment %}
+                                <div class="toolbar-environment">
+                                    {% include '/' ~ module_directory ~ '/components/environment-indicator.html.twig' %}
+                                </div>
+                            {% endif %}
                             {% else %}
                             <nav class="toolbar-lining clearfix" role="navigation">
                                 {% endif %}
