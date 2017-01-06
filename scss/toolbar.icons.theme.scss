@@ -96,19 +96,25 @@
  */
 .toolbar .toolbar-toggle-orientation button {
     height: 50px;
+    width: 50px;
     padding: 0;
-    width: 100%;
-    min-width: 50px;
     background: rgba($toolbar-tray-link-color, .15);
     font-size: 0;
 
     &::before {
         @include ionicons;
         font-size: 1rem;
-        content: "\f268";
         left: 0;
         right: 0;
         margin: 0 auto;
         text-indent: 0;
+    }
+
+    &[value="vertical"]::before {
+        content: "\f3d4";
+    }
+
+    &[value="horizontal"]::before {
+        content: "\f3d7";
     }
 }
