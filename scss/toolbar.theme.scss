@@ -185,6 +185,10 @@
     .toolbar-logo svg {
         max-width: 150px;
     }
+
+    .toolbar-menu {
+        background-color: $toolbar-tray-bg-color !important;
+    }
 }
 
 /**
@@ -249,7 +253,7 @@
     }
 
     .toolbar-menu {
-        background-color: $toolbar-tray-bg-color;
+        background-color: $toolbar-tray-bg-color !important;
     }
 }
 
