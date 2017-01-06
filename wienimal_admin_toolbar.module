@@ -60,13 +60,14 @@ function _wienimal_admin_toolbar_is_access()
  */
 function wienimal_admin_toolbar_library_info_alter(&$libraries, $extension)
 {
+
     $styles_path = '/' . drupal_get_path('module', 'wienimal_admin_toolbar') . '/css';
 
     if ($extension == 'toolbar' && isset($libraries['toolbar'])) {
         $new_css = [];
         $replacements = [
           'css/toolbar.theme.css' => $styles_path . '/toolbar.theme.css',
-          'css/toolbar.icons.theme.css' => $styles_path . '/toolbar.icons.theme.css'
+          'css/toolbar.icons.theme.css' => $styles_path . '/toolbar.icons.theme.css',
         ];
 
         foreach ($libraries['toolbar']['css']['theme'] as $source => $options) {

@@ -1,0 +1,47 @@
+/**
+ * @file toolbar.theme.css
+ */
+@import 'config';
+
+$toolbar-tray-bg-color: #F5F5F5 !default;
+$toolbar-tray-link-color: #333333 !default;
+
+.toolbar .toolbar-bar {
+    background-color: $toolbar-bar-bg-color;
+    color: $toolbar-bar-link-color;
+
+    .toolbar-tab {
+        > .toolbar-item {
+            &:hover,
+            &:focus {
+                background-color: darken($toolbar-bar-bg-color, 5%);
+            }
+
+            &.is-active {
+                background-color: darken($toolbar-bar-bg-color, 7%);
+
+                &:hover,
+                &:focus {
+                    background-color: darken($toolbar-bar-bg-color, 7%);
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Toolbar tray.
+ */
+.toolbar .toolbar-tray {
+    background-color: $toolbar-tray-bg-color;
+
+    a {
+        color: $toolbar-tray-link-color !important;
+
+        &:hover,
+        &:focus,
+        &:active {
+            background-color: darken($toolbar-tray-bg-color, 15%);
+        }
+    }
+}

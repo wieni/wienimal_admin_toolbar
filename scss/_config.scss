@@ -8,21 +8,21 @@ $toolbar-icons: (
     'entity-user-collection': '\f47c',
     'system-admin-reports': '\f262',
     'help-main': '\f142',
-);
+) !default;
 
 $toolbar-main-icons: (
     'escape-admin': '\f265',
     'menu': '\f394',
     'shortcut': '\f26b',
     'user': '\f213',
-);
+) !default;
 
-$toolbar-tray-bg-color: #F5F5F5;
-$toolbar-tray-link-color: #333;
-$toolbar-size: 250px;
+$toolbar-tray-bg-color: #2D2E30 !default;
+$toolbar-tray-link-color: #FFFFFF !default;
+$toolbar-size: 250px !default;
 
-$toolbar-bar-bg-color: $toolbar-tray-bg-color;
-$toolbar-bar-link-color: $toolbar-tray-link-color;
+$toolbar-bar-bg-color: $toolbar-tray-bg-color !default;
+$toolbar-bar-link-color: $toolbar-tray-link-color !default;
 
 @mixin ionicons() {
     font-family: "Ionicons";
