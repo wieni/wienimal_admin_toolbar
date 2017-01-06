@@ -49,7 +49,7 @@
     background-color: $toolbar-bar-bg-color;
     color: $toolbar-bar-link-color;
     margin-left: 0 !important;
-    padding-left: $toolbar-size;
+    padding-left: 0;
 
     .path-admin & {
         margin-left: $toolbar-size + 30px;
@@ -173,6 +173,10 @@
         }
     }
 
+    .toolbar-bar {
+        padding-left: $toolbar-size;
+    }
+
     .level-2 .toolbar-box > a {
         padding-left: 2.2rem;
     }
@@ -184,6 +188,7 @@
 
     .toolbar-logo svg {
         max-width: 150px;
+        max-height: 100px;
     }
 
     .toolbar-menu {
@@ -197,8 +202,6 @@
 .toolbar-horizontal {
     .toolbar {
         .toolbar-tray {
-            margin-top: 0 !important;
-
             .menu-item {
                 border: 0;
                 border-bottom: 1px solid rgba($toolbar-tray-link-color, .05);
@@ -238,14 +241,10 @@
                 }
             }
         }
-
-        .toolbar-bar {
-            padding-left: 100px;
-        }
     }
 
     .toolbar-logo {
-        max-width: 30px;
+        display: none;
     }
 
     .toolbar-environment {
