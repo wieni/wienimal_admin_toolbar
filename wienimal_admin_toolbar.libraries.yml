@@ -10,10 +10,10 @@ ionicons:
     base:
       http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css: { external: true }
 
-wienimal.toolbar.light:
+wienimal.toolbar.dark:
   version: '1.0.0'
   css:
     theme:
-      css/toolbar.theme.light.css: { weight: 9999 }
+      css/toolbar.theme.dark.css: { weight: 9999 }
   dependencies:
     - toolbar/toolbar

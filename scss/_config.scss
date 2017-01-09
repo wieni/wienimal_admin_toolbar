@@ -17,9 +17,11 @@ $toolbar-main-icons: (
     'user': '\f213',
 ) !default;
 
-$toolbar-tray-bg-color: #2D2E30 !default;
-$toolbar-tray-link-color: #FFFFFF !default;
+$toolbar-tray-bg-color: #F5F5F5 !default;
+$toolbar-tray-link-color: #333333 !default;
 $toolbar-size: 250px !default;
+
+$toolbar-divider-color: rgba(#333333, .07) !default;
 
 $toolbar-bar-bg-color: $toolbar-tray-bg-color !default;
 $toolbar-bar-link-color: $toolbar-tray-link-color !default;

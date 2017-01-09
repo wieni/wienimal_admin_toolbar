@@ -3,8 +3,13 @@
  */
 @import 'config';
 
-$toolbar-tray-bg-color: #F5F5F5 !default;
-$toolbar-tray-link-color: #333333 !default;
+$toolbar-tray-bg-color: #2D2E30;
+$toolbar-tray-link-color: #FFFFFF;
+
+$toolbar-divider-color: rgba(#FFFFFF, .1);
+
+$toolbar-bar-bg-color: $toolbar-tray-bg-color;
+$toolbar-bar-link-color: $toolbar-tray-link-color;
 
 .toolbar .toolbar-bar {
     background-color: $toolbar-bar-bg-color;
@@ -44,4 +49,17 @@ $toolbar-tray-link-color: #333333 !default;
             background-color: darken($toolbar-tray-bg-color, 15%);
         }
     }
+}
+
+.toolbar .toolbar-menu {
+    background-color: $toolbar-tray-bg-color !important;
+    border-top: 1px solid $toolbar-divider-color;
+
+    > li {
+        border-bottom: 1px solid $toolbar-divider-color;
+    }
+}
+
+.toolbar .toolbar-icon.toolbar-handle {
+    color: $toolbar-tray-link-color;
 }

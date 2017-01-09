@@ -85,7 +85,7 @@
     background-color: $toolbar-tray-bg-color;
 
     a {
-        color: $toolbar-tray-link-color !important;
+        color: $toolbar-tray-link-color;
         cursor: pointer;
         padding: 1.25em 1.5em;
         text-decoration: none !important;
@@ -129,14 +129,14 @@
  */
 .toolbar .toolbar-menu {
     background-color: $toolbar-tray-bg-color;
-    border-top: 1px solid rgba($toolbar-tray-link-color, .05);
+    border-top: 1px solid $toolbar-divider-color;
 
     .menu-item > .toolbar-menu {
         border-top: 0;
     }
 
     > li {
-        border-bottom: 1px solid rgba($toolbar-tray-link-color, .05);
+        border-bottom: 1px solid $toolbar-divider-color;
     }
 }
 
@@ -149,6 +149,10 @@
 
 .contextual-toolbar-tab .toolbar-icon {
     background-image: none !important;
+    background-color: $toolbar-tray-bg-color;
+}
+
+.toolbar-menu {
     background-color: $toolbar-tray-bg-color;
 }
 
@@ -189,10 +193,6 @@
     .toolbar-logo svg {
         max-width: 150px;
         max-height: 100px;
-    }
-
-    .toolbar-menu {
-        background-color: $toolbar-tray-bg-color !important;
     }
 }
 
@@ -249,10 +249,6 @@
 
     .toolbar-environment {
         display: none;
-    }
-
-    .toolbar-menu {
-        background-color: $toolbar-tray-bg-color !important;
     }
 }
 

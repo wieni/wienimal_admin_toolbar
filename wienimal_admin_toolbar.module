@@ -110,6 +110,10 @@ function wienimal_admin_toolbar_preprocess_toolbar(&$variables)
     $variables['environment'] = _wienimal_admin_toolbar_check_environment();
     // Admin logo
     $variables['admin_logo_path'] = _wienimal_admin_toolbar_admin_logo_path();
+
+    if (\Drupal::config('wienimal.settings')->get('toolbar.theme') == 'dark') {
+        $variables['#attached']['library'][] = 'wienimal_admin_toolbar/wienimal.toolbar.dark';
+    }
 }
 
 /**
