@@ -94,27 +94,31 @@
 /**
  * Orientation toggle.
  */
-.toolbar .toolbar-toggle-orientation button {
-    height: 50px;
-    width: 50px;
-    padding: 0;
-    background: rgba($toolbar-tray-link-color, .15);
-    font-size: 0;
+.toolbar .toolbar-toggle-orientation {
+    text-align: center;
 
-    &::before {
-        @include ionicons;
-        font-size: 1rem;
-        left: 0;
-        right: 0;
-        margin: 0 auto;
-        text-indent: 0;
-    }
+    button {
+        height: 50px;
+        width: 50px;
+        padding: 0;
+        background: rgba($toolbar-tray-link-color, .15);
+        font-size: 0;
 
-    &[value="vertical"]::before {
-        content: "\f3d4";
-    }
+        &::before {
+            @include ionicons;
+            font-size: 1rem;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            text-indent: 0;
+        }
 
-    &[value="horizontal"]::before {
-        content: "\f3d7";
+        &[value="vertical"]::before {
+            content: "\f3d4";
+        }
+
+        &[value="horizontal"]::before {
+            content: "\f3d7";
+        }
     }
 }

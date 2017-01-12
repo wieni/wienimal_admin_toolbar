@@ -63,3 +63,14 @@ $toolbar-bar-link-color: $toolbar-tray-link-color;
 .toolbar .toolbar-icon.toolbar-handle {
     color: $toolbar-tray-link-color;
 }
+
+.toolbar-horizontal {
+    .toolbar {
+        .toolbar-tray {
+            .menu-item {
+                border: 0;
+                border-bottom: 1px solid rgba($toolbar-tray-link-color, .05);
+            }
+        }
+    }
+}
