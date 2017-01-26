@@ -12,6 +12,6 @@
     "prefer-stable": true,
     "type": "drupal-module",
     "require": {
-        "drupal/admin_toolbar": "~8.1"
+        "drupal/admin_toolbar": "~1.1"
     }
 }
