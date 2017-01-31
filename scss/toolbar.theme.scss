@@ -31,7 +31,7 @@
     border: 0;
     background: transparent;
     cursor: pointer;
-    padding: 1.1em 1.3333em;
+    padding: 12px 20px;
     line-height: 1em;
     text-decoration: none;
 
@@ -87,12 +87,19 @@
     a {
         color: $toolbar-tray-link-color;
         cursor: pointer;
-        padding: 1.25em 1.5em;
+        padding: 12px 20px;
         text-decoration: none !important;
 
         &:hover,
         &:focus,
         &:active {
+            background-color: darken($toolbar-tray-bg-color, 15%);
+        }
+    }
+
+    li:hover,
+    li:focus {
+        > a {
             background-color: darken($toolbar-tray-bg-color, 15%);
         }
     }
@@ -204,7 +211,7 @@
         .toolbar-tray {
             .menu-item {
                 border: 0;
-                border-bottom: 1px solid rgba($toolbar-tray-link-color, .05);
+                border-bottom: 1px solid rgba($toolbar-tray-link-color, .1);
 
                 &:last-child {
                     border: 0;
@@ -231,7 +238,7 @@
                                 content: "\f3d3";
                                 position: absolute;
                                 right: 12px;
-                                top: 19px;
+                                top: 13px;
                             }
                         }
                     }
