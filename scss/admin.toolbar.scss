@@ -43,7 +43,7 @@
 
 .toolbar-tray-horizontal ul li.menu-item--expanded .menu-item:hover ul {
     display: block;
-    margin: -40px 0 0 200px;
+    margin: -38px 0 0 200px;
 }
 
 .toolbar-tray-horizontal li:hover ul li {
@@ -60,4 +60,8 @@
 
 .toolbar .toolbar-tray-vertical li.open > ul.toolbar-menu.clearfix {
     display: block;
+}
+
+.toolbar .toolbar-bar .toolbar-tab.user-toolbar-tab {
+    float: right;
 }

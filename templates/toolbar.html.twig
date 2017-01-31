@@ -21,36 +21,26 @@
  */
 #}
 <div{{ attributes.addClass('toolbar') }}>
-    <nav{{ toolbar_attributes.addClass('toolbar-bar', 'clearfix') }}>
-        <h2 class="visually-hidden">{{ toolbar_heading }}</h2>
-        {% for key, tab in tabs %}
-            {% set tray = trays[key] %}
-            <div{{ tab.attributes.addClass('toolbar-tab') }}>
-                {{ tab.link }}
-                {% spaceless %}
-                    <div{{ tray.attributes }}>
-                        {% if tray.label %}
-                        <nav class="toolbar-lining clearfix" role="navigation" aria-label="{{ tray.label }}">
-                            <h3 class="toolbar-tray-name visually-hidden">{{ tray.label }}</h3>
-                            <div class="toolbar-logo">
-                                <a class="toolbar-logo__link" href="{{ url('system.admin_content') }}">
-                                    {% include admin_logo_path %}
-                                </a>
-                            </div>
-                            {% if environment %}
-                                <div class="toolbar-environment">
-                                    {% include '/' ~ module_directory ~ '/components/environment-indicator.html.twig' %}
-                                </div>
-                            {% endif %}
-                            {% else %}
-                            <nav class="toolbar-lining clearfix" role="navigation">
-                                {% endif %}
-                                {{ tray.links }}
-                            </nav>
-                    </div>
-                {% endspaceless %}
-            </div>
-        {% endfor %}
-    </nav>
-    {{ remainder }}
+  <nav{{ toolbar_attributes.addClass('toolbar-bar') }}>
+    <h2 class="visually-hidden">{{ toolbar_heading }}</h2>
+    {% for key, tab in tabs %}
+      {% set tray = trays[key] %}
+      <div{{ tab.attributes.addClass('toolbar-tab') }}>
+        {{ tab.link }}
+        {% spaceless %}
+          <div{{ tray.attributes }}>
+            {% if tray.label %}
+            <nav class="toolbar-lining clearfix" role="navigation" aria-label="{{ tray.label }}">
+              <h3 class="toolbar-tray-name visually-hidden">{{ tray.label }}</h3>
+              {% else %}
+              <nav class="toolbar-lining clearfix" role="navigation">
+                {% endif %}
+                {{ tray.links }}
+              </nav>
+          </div>
+        {% endspaceless %}
+      </div>
+    {% endfor %}
+  </nav>
+  {{ remainder }}
 </div>

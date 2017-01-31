@@ -26,8 +26,6 @@ function wienimal_admin_toolbar_page_attachments_alter(array &$page)
         $page['#attached']['library'][] = 'wienimal_admin_toolbar/ionicons';
         // Attach the custom css.
         $page['#attached']['library'][] = 'wienimal_admin_toolbar/wienimal-admin-toolbar';
-        // Attach the environment library.
-        $page['#attached']['library'][] = 'wienimal_admin_toolbar/toolbar.environment';
     }
 }
 
@@ -106,25 +104,11 @@ function wienimal_admin_toolbar_preprocess_toolbar(&$variables)
     // $variables['#attached']['library'][] = 'wienimal_admin_toolbar/toolbar.lock';
     // Pass the module directory to the Twig files, like the directory variable in themes.
     $variables['module_directory'] = drupal_get_path('module', 'wienimal_admin_toolbar');
-    // Pass the current environment to the template.
-    $variables['environment'] = _wienimal_admin_toolbar_check_environment();
     // Admin logo
     $variables['admin_logo_path'] = _wienimal_admin_toolbar_admin_logo_path();
 
     if (\Drupal::config('wienimal.settings')->get('toolbar.theme') == 'dark') {
         $variables['#attached']['library'][] = 'wienimal_admin_toolbar/wienimal.toolbar.dark';
-    }
-}
-
-/**
- * Helper function to get the current environment.
- */
-function _wienimal_admin_toolbar_check_environment()
-{
-    $user = \Drupal::currentUser();
-
-    if ($user->hasPermission('administer site configuration')) {
-        return WM_ENV_NAME;
     }
 }
 
