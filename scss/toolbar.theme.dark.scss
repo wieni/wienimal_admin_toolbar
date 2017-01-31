@@ -49,6 +49,13 @@ $toolbar-bar-link-color: $toolbar-tray-link-color;
             background-color: darken($toolbar-tray-bg-color, 15%);
         }
     }
+
+    li:hover,
+    li:focus {
+        > a {
+            background-color: darken($toolbar-tray-bg-color, 10%);
+        }
+    }
 }
 
 .toolbar .toolbar-menu {
