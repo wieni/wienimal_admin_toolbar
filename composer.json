@@ -10,5 +10,8 @@
     ],
     "minimum-stability": "dev",
     "prefer-stable": true,
-    "type": "drupal-module"
+    "type": "drupal-module",
+    "require": {
+        "drupal/admin_toolbar": "1.*"
+    }
 }
