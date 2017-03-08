@@ -133,6 +133,12 @@ function _wienimal_admin_toolbar_admin_logo_path()
     }
 }
 
+function wienimal_admin_toolbar_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+    if  (isset($variables['menu_name']) && $variables['menu_name'] == 'devel') {
+        $suggestions[] = 'menu__toolbar';
+    }
+}
+
 /**
  * Implements hook_theme_registry_alter().
  */
