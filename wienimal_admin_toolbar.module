@@ -4,6 +4,7 @@
  * @file
  * Functions to support wienimal admin toolbar.
  */
+use Drupal\Core\Url;
 
 /**
  * Implements hook_preprocess_html().
@@ -30,13 +31,57 @@ function wienimal_admin_toolbar_page_attachments_alter(array &$page)
 }
 
 /**
+ * Implements hook_toolbar().
+ */
+function wienimal_admin_toolbar_toolbar()
+{
+    if ($json_data = _wienimal_admin_toolbar_read_build_info()) {
+        $items = [];
+
+        $data = json_decode($json_data);
+
+        $items['build_info'] = [
+            '#type' => 'toolbar_item',
+            'tab' => [
+                '#type' => 'link',
+                '#title' => $data->version . ' (' . date_format(date_create($data->date), 'd/m/y - h:i') . ')',
+                '#url' => Url::fromRoute('<front>'),
+                '#options' => [
+                    'attributes' => [
+                        'title' => t('Home page'),
+                        'class' => ['toolbar-item', 'toolbar-deploy'],
+                    ],
+                ],
+            ],
+            '#weight' => 1000,
+            '#wrapper_attributes' => [
+                'class' => ['right-toolbar-tab'],
+            ],
+        ];
+
+        return $items;
+    }
+}
+
+/**
+ * Helper function to read the version data.
+ *
+ * @return string or false if no data
+ */
+function _wienimal_admin_toolbar_read_build_info()
+{
+    return file_get_contents('./version.json');
+}
+
+
+/**
  * Implements hook_toolbar_alter().
  */
 function wienimal_admin_toolbar_toolbar_alter(&$items)
 {
     // Add class to the user tab so it can be moved to the right.
     if (_wienimal_admin_toolbar_is_access()) {
-        $items['user']['#wrapper_attributes']['class'] = ['user-toolbar-tab'];
+        $items['user']['#wrapper_attributes']['class'] = ['right-toolbar-tab'];
     }
 }
 
@@ -64,8 +109,8 @@ function wienimal_admin_toolbar_library_info_alter(&$libraries, $extension)
     if ($extension == 'toolbar' && isset($libraries['toolbar'])) {
         $new_css = [];
         $replacements = [
-          'css/toolbar.theme.css' => $styles_path . '/toolbar.theme.css',
-          'css/toolbar.icons.theme.css' => $styles_path . '/toolbar.icons.theme.css',
+            'css/toolbar.theme.css' => $styles_path . '/toolbar.theme.css',
+            'css/toolbar.icons.theme.css' => $styles_path . '/toolbar.icons.theme.css',
         ];
 
         foreach ($libraries['toolbar']['css']['theme'] as $source => $options) {
@@ -81,7 +126,7 @@ function wienimal_admin_toolbar_library_info_alter(&$libraries, $extension)
     if ($extension == 'admin_toolbar' && isset($libraries['toolbar.tree'])) {
         $new_css = [];
         $replacements = [
-          'css/admin.toolbar.css' => $styles_path . '/admin.toolbar.css',
+            'css/admin.toolbar.css' => $styles_path . '/admin.toolbar.css',
         ];
 
         foreach ($libraries['toolbar.tree']['css']['theme'] as $source => $options) {
@@ -133,8 +178,9 @@ function _wienimal_admin_toolbar_admin_logo_path()
     }
 }
 
-function wienimal_admin_toolbar_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
-    if  (isset($variables['menu_name']) && $variables['menu_name'] == 'devel') {
+function wienimal_admin_toolbar_theme_suggestions_menu_alter(array &$suggestions, array $variables)
+{
+    if (isset($variables['menu_name']) && $variables['menu_name'] == 'devel') {
         $suggestions[] = 'menu__toolbar';
     }
 }
