@@ -70,7 +70,7 @@ function wienimal_admin_toolbar_toolbar()
  */
 function _wienimal_admin_toolbar_read_build_info()
 {
-    return file_get_contents('./version.json');
+    return @file_get_contents('./version.json');
 }
 
 
