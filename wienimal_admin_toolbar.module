@@ -44,7 +44,7 @@ function wienimal_admin_toolbar_toolbar()
             '#type' => 'toolbar_item',
             'tab' => [
                 '#type' => 'link',
-                '#title' => $data->version . ' (' . date_format(date_create($data->date), 'd/m/y - h:i') . ')',
+                '#title' => $data->version . ' (' . date_format(date_add(date_create($data->date), date_interval_create_from_date_string('1 hour')), 'd/m/y - h:i') . ')',
                 '#url' => Url::fromRoute('<front>'),
                 '#options' => [
                     'attributes' => [
