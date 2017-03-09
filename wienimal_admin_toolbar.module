@@ -39,12 +39,15 @@ function wienimal_admin_toolbar_toolbar()
         $items = [];
 
         $data = json_decode($json_data);
+        $timezone = new DateTimeZone('Europe/Brussels');
+        $date = \DateTime::createFromFormat(DateTime::ISO8601, $data->date)->setTimezone($timezone);
+        $date_formatted = $date->format('d/m/y - h:i');
 
         $items['build_info'] = [
             '#type' => 'toolbar_item',
             'tab' => [
                 '#type' => 'link',
-                '#title' => $data->version . ' (' . date_format(date_add(date_create($data->date), date_interval_create_from_date_string('1 hour')), 'd/m/y - h:i') . ')',
+                '#title' => $data->version . ' (' . $date_formatted . ')',
                 '#url' => Url::fromRoute('<front>'),
                 '#options' => [
                     'attributes' => [
