@@ -155,6 +155,8 @@ function wienimal_admin_toolbar_preprocess_toolbar(&$variables)
     // Admin logo
     $variables['admin_logo_path'] = _wienimal_admin_toolbar_admin_logo_path();
 
+    $variables['last_deploy'] = _wienimal_admin_toolbar_get_last_deploy();
+
     if (\Drupal::config('wienimal.settings')->get('toolbar.theme') == 'dark') {
         $variables['#attached']['library'][] = 'wienimal_admin_toolbar/wienimal.toolbar.dark';
     }
@@ -194,4 +196,23 @@ function wienimal_admin_toolbar_theme_suggestions_menu_alter(array &$suggestions
 function wienimal_admin_toolbar_theme_registry_alter(&$theme_registry)
 {
     $theme_registry['toolbar']['path'] = drupal_get_path('module', 'wienimal_admin_toolbar') . '/templates';
+}
+
+/**
+ * Helper to see if we have intel on the last deploy.
+ */
+function _wienimal_admin_toolbar_get_last_deploy()
+{
+    $return = [
+        'version' => '',
+        'date' => '',
+    ];
+
+    $path = Drupal::root() . '/version.json';
+    if (file_exists($path)) {
+        $json = (array) json_decode(file_get_contents($path));
+        $return = $json + $return;
+    }
+
+    return $return;
 }
