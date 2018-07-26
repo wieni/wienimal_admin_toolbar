@@ -155,7 +155,7 @@ function wienimal_admin_toolbar_preprocess_toolbar(&$variables)
     // Admin logo
     $variables['admin_logo_path'] = _wienimal_admin_toolbar_admin_logo_path();
 
-    if (\Drupal::config('wienimal.settings')->get('toolbar.theme') == 'dark') {
+    if (\Drupal::config('wienimal_admin_toolbar.settings')->get('theme') == 'dark') {
         $variables['#attached']['library'][] = 'wienimal_admin_toolbar/wienimal.toolbar.dark';
     }
 }
