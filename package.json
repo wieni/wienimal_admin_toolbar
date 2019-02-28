@@ -4,7 +4,7 @@
   "description": "The Panda base theme for Drupal 8.",
   "main": "",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build"
   },
   "author": "",
   "license": "ISC",
