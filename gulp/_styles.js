@@ -20,7 +20,8 @@ let buildStyles = () => {
       outputStyle: 'expanded',
     }).on('error', $.sass.logError))
     .pipe($.cssnano({
-      autoprefixer: { browsers: ['last 2 versions', 'IE 10', 'IE 11', 'Firefox >= 20'], add: true }
+      autoprefixer: { browsers: ['last 2 versions', 'IE 10', 'IE 11', 'Firefox >= 20'], add: true },
+      zindex: false
     }))
     .pipe($.if(conf.debugMode, $.sourcemaps.write('.')))
     .pipe(gulp.dest(conf.paths.styles.dest))
