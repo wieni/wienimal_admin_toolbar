@@ -265,3 +265,7 @@
     font-size: 12px;
     font-weight: 600 !important;
 }
+
+body.toolbar-fixed .toolbar-oriented .toolbar-bar {
+    z-index: 100000;
+}
