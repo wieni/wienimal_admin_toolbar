@@ -12,7 +12,7 @@
     "prefer-stable": true,
     "type": "drupal-module",
     "require": {
-        "drupal/admin_toolbar": "1.*"
+        "drupal/admin_toolbar": "^2.0"
     },
     "repositories": [
         {
