@@ -13,5 +13,11 @@
     "type": "drupal-module",
     "require": {
         "drupal/admin_toolbar": "1.*"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ]
 }
