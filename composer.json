@@ -12,7 +12,9 @@
     "prefer-stable": true,
     "type": "drupal-module",
     "require": {
-        "drupal/admin_toolbar": "^2.0"
+        "php": ">=7.1.0",
+        "drupal/admin_toolbar": "^2.0",
+        "drupal/core": "^8.0 || ^9.0"
     },
     "require-dev": {
         "ergebnis/composer-normalize": "^2.0",
