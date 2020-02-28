@@ -106,24 +106,6 @@
 }
 
 /**
- * Toolbar logo.
- */
-.toolbar .toolbar-logo {
-    text-align: center;
-    margin: 15px 30px;
-
-    .toolbar-logo__link {
-        padding: 0;
-        margin: 0;
-
-        &:hover,
-        &:focus {
-            background-color: transparent;
-        }
-    }
-}
-
-/**
  * Toolbar environment.
  */
 .toolbar .toolbar-environment {

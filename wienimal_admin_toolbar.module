@@ -148,36 +148,8 @@ function wienimal_admin_toolbar_library_info_alter(&$libraries, $extension)
  */
 function wienimal_admin_toolbar_preprocess_toolbar(&$variables)
 {
-    // Lock the toolbar
-    // $variables['#attached']['library'][] = 'wienimal_admin_toolbar/toolbar.lock';
-    // Pass the module directory to the Twig files, like the directory variable in themes.
-    $variables['module_directory'] = drupal_get_path('module', 'wienimal_admin_toolbar');
-    // Admin logo
-    $variables['admin_logo_path'] = _wienimal_admin_toolbar_admin_logo_path();
-
     if (\Drupal::config('wienimal_admin_toolbar.settings')->get('theme') == 'dark') {
         $variables['#attached']['library'][] = 'wienimal_admin_toolbar/wienimal.toolbar.dark';
-    }
-}
-
-/**
- * Helper function to get the admin logo
- */
-function _wienimal_admin_toolbar_admin_logo_path()
-{
-    // The default logo from this module.
-    $admin_logo_module_path = '/' . drupal_get_path('module', 'wienimal_admin_toolbar') . '/admin-logo.svg';
-
-    // Get the active theme.
-    $theme = \Drupal::config('system.theme')->get('default');
-    $admin_logo_theme_path = drupal_get_path('theme', $theme) . '/admin-logo.svg';
-
-    // Return the admin logo from the front-end theme if there is one. Otherwise
-    // return the default logo.
-    if (file_exists($admin_logo_theme_path)) {
-        return $admin_logo_theme_path;
-    } else {
-        return $admin_logo_module_path;
     }
 }
 
