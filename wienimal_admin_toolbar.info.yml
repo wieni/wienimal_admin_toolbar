@@ -1,7 +1,8 @@
 name: Wienimal Admin Toolbar
+type: module
+description: A nice admin_toolbar experience for Drupal 8, finally.
 core: 8.x
 core_version_requirement: ^8.0 || ^9.0
 package: Wieni
-type: module
 dependencies:
   - admin_toolbar
