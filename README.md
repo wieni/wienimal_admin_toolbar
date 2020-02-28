@@ -9,6 +9,7 @@ wienimal_admin_toolbar
 
 ## Why?
 - **Clean, minimal style** for the Drupal 8 [admin toolbar](https://www.drupal.org/project/admin_toolbar) 
+- New icons by [ionicons](https://ionicons.com)
 - Configurable **light & dark themes** 
 - **Display information about the current build**
 
