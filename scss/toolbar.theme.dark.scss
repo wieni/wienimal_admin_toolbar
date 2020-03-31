@@ -40,7 +40,10 @@ $toolbar-bar-link-color: $toolbar-tray-link-color;
 .toolbar .toolbar-tray {
     background-color: $toolbar-tray-bg-color;
 
-    a {
+    a,
+    span {
+        display: block;
+        line-height: 1;
         color: $toolbar-tray-link-color !important;
 
         &:hover,
@@ -52,7 +55,8 @@ $toolbar-bar-link-color: $toolbar-tray-link-color;
 
     li:hover,
     li:focus {
-        > a {
+        > a,
+        > span {
             background-color: darken($toolbar-tray-bg-color, 10%);
         }
     }

@@ -85,8 +85,12 @@
     background-color: $toolbar-tray-bg-color;
 
     a {
-        color: $toolbar-tray-link-color;
         cursor: pointer;
+    }
+
+    a,
+    span {
+        color: $toolbar-tray-link-color;
         padding: 12px 20px;
         text-decoration: none !important;
 
